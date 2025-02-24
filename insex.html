@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crocodile Facts</title>
+    <style>
+        body {
+            background-color: #2E7D32; /* Crocodile green */
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .fact-display {
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        button {
+            background-color: #A5D6A7; /* Lighter green for button */
+            color: #2E7D32;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #81C784; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crocodile Facts</h1>
+        <div id="factDisplay" class="fact-display">Click the button to see a fact!</div>
+        <button id="factButton">Show a Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "Crocodiles can live for over 70 years in the wild.",
+            "They have the strongest bite of any animal, with a bite force of over 3,700 pounds per square inch.",
+            "Crocodiles are more closely related to birds than they are to other reptiles.",
+            "They can hold their breath underwater for up to an hour while waiting for prey.",
+            "Crocodiles have a unique ability to see in color, which helps them hunt.",
+            "They can swim at speeds of up to 20 miles per hour in short bursts.",
+            "Crocodiles have a special valve in their throat that allows them to open their mouths underwater without drowning.",
+            "They are known to be very territorial and will defend their nesting sites aggressively.",
+            "Crocodiles can produce a wide range of vocalizations, including growls, hisses, and bellows.",
+            "Some species of crocodiles can even climb trees to bask in the sun."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const factDisplay = document.getElementById('factDisplay');
+            
+            // Rotate animation
+            factDisplay.style.transform = 'rotateY(180deg)';
+            
+            setTimeout(() => {
+                factDisplay.innerText = facts[randomIndex];
+                factDisplay.style.transform = 'rotateY(0deg)';
+            }, 500); // Match the timeout with the CSS transition duration
+        });
+    </script>
+</body>
+</html>
